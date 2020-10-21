@@ -6,17 +6,23 @@ namespace EmployeeWageProblem
     {
         static void Main(string[] args)
         {
-            const int IS_EMPLOYEE_FULL_TIME = 1;
-            const int WORKING_HRS = 8, WAGE_PER_HR = 20;
+            const int IS_EMPLOYEE_FULL_TIME = 1, IS_EMPLOYEE_PART_TIME = 2;
+            const int FULL_TIME_WORKING_HRS = 8, WAGE_PER_HR = 20;
+            const int PART_TIME_WORKING_HRS = 4;
+
             Random random = new Random();
-            int empCheck = random.Next(2);
+            int empCheck = random.Next(3);
             if( empCheck == IS_EMPLOYEE_FULL_TIME)
             {
-                Console.WriteLine("Employee present and daily wage: " + WAGE_PER_HR * WORKING_HRS);
+                Console.WriteLine("Employee fulltime and daily wage: " + WAGE_PER_HR * FULL_TIME_WORKING_HRS);
+            }
+            else if ( empCheck == IS_EMPLOYEE_PART_TIME )
+            {
+                Console.WriteLine("Employee Parttime and daily wage: "+ WAGE_PER_HR * PART_TIME_WORKING_HRS);
             }
             else
             {
-                Console.WriteLine("Employee Absent");
+                Console.WriteLine("Employee absent");
             }
         }
     }
