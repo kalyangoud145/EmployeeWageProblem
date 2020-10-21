@@ -12,17 +12,18 @@ namespace EmployeeWageProblem
 
             Random random = new Random();
             int empCheck = random.Next(3);
-            if( empCheck == IS_EMPLOYEE_FULL_TIME)
+
+            switch (empCheck)
             {
-                Console.WriteLine("Employee fulltime and daily wage: " + WAGE_PER_HR * FULL_TIME_WORKING_HRS);
-            }
-            else if ( empCheck == IS_EMPLOYEE_PART_TIME )
-            {
-                Console.WriteLine("Employee Parttime and daily wage: "+ WAGE_PER_HR * PART_TIME_WORKING_HRS);
-            }
-            else
-            {
-                Console.WriteLine("Employee absent");
+                case IS_EMPLOYEE_FULL_TIME:
+                    Console.WriteLine("Employee fulltime and daily wage: " + WAGE_PER_HR * FULL_TIME_WORKING_HRS);
+                    break;
+                case IS_EMPLOYEE_PART_TIME:
+                    Console.WriteLine("Employee Parttime and daily wage: " + WAGE_PER_HR * PART_TIME_WORKING_HRS);
+                    break;
+                default:
+                    Console.WriteLine("Employee absent");
+                    break;
             }
         }
     }
