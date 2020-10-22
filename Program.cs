@@ -5,9 +5,9 @@ namespace EmployeeWageProblem
     class Program
     {
         //constants 
-        const int IS_EMPLOYEE_FULL_TIME = 1, IS_EMPLOYEE_PART_TIME = 2;
-        const int WAGE_PER_HR = 20, MAX_WORKING_HRS = 100;
-        const int MAX_WORKING_DAYS = 20;
+        public const int IS_EMPLOYEE_FULL_TIME = 1, IS_EMPLOYEE_PART_TIME = 2;
+        public const int WAGE_PER_HR = 20, MAX_WORKING_HRS = 100;
+        public const int MAX_WORKING_DAYS = 20;
         static void Main(string[] args)
         {
             
