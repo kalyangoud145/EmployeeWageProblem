@@ -7,7 +7,7 @@ namespace EmployeeWageProblem
     class CompanyEmpWage
     {
     
-        public string companyname;
+        public string company;
         public int WAGE_PER_HR;
         public int MAX_WORKING_DAYS;
         public int MAX_WORKING_HRS;
@@ -19,9 +19,9 @@ namespace EmployeeWageProblem
         /// <param name="WAGE_PER_HR">The wage per hr.</param>
         /// <param name="MAX_WORKING_DAYS">The maximum working days.</param>
         /// <param name="MAX_WORKING_HRS">The maximum working HRS.</param>
-        public CompanyEmpWage(string companyname, int WAGE_PER_HR, int MAX_WORKING_DAYS, int MAX_WORKING_HRS)
+        public CompanyEmpWage(string company, int WAGE_PER_HR, int MAX_WORKING_DAYS, int MAX_WORKING_HRS)
         {
-            this.companyname = companyname;
+            this.company = company;
             this.WAGE_PER_HR = WAGE_PER_HR;
             this.MAX_WORKING_DAYS = MAX_WORKING_DAYS;
             this.MAX_WORKING_HRS = MAX_WORKING_HRS;
@@ -43,7 +43,7 @@ namespace EmployeeWageProblem
         override
         public string ToString()
         {
-            return "Company name: " + this.companyname + "Total Employee wage: " + this.totalEmpWage;
+            return "Company name: " + this.company + " Total Employee wage: " + this.totalEmpWage;
         }
     }
 }
