@@ -2,38 +2,45 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EmployeeWageProblem
+namespace EmployeeWageProblem 
 {
-    class EmployeeBuildArray
+    class EmployeeBuildArray : IComputeWage
     {
         /// <summary>
         /// Constants
         /// </summary>
         const int IS_EMPLOYEE_FULL_TIME = 1, IS_EMPLOYEE_PART_TIME = 2;
 
-        private int numOfCompany = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+        private LinkedList<CompanyEmpWage> companyEmpWageList;
+        private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
         
-        public EmployeeBuildArray()
+        public  EmployeeBuildArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
+            this.companyToEmpWageMap = new Dictionary<string,CompanyEmpWage>();
         }
 
-        public void AddCompanyEmpWage(string companyname, int WAGE_PER_HR, int MAX_WORKING_DAYS, int MAX_WORKING_HRS)
+        public void AddCompanyEmpWage(string company, int WAGE_PER_HR, int MAX_WORKING_DAYS, int MAX_WORKING_HRS)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(companyname, WAGE_PER_HR, MAX_WORKING_DAYS, MAX_WORKING_HRS);
-            numOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, WAGE_PER_HR, MAX_WORKING_DAYS, MAX_WORKING_HRS);
+            this.companyEmpWageList.AddLast(companyEmpWage);
+            this.companyToEmpWageMap.Add(company,companyEmpWage);
         }
         /// <summary>
         /// for switching across multiple comapanies at a time
         /// </summary>
         public void ComputeEmpWage()
         {
-            for (int i = 0; i < numOfCompany; i++)
+           foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
             {
-                companyEmpWageArray[i].SetTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].ToString());
+                companyEmpWage.SetTotalEmpWage(this.ComputeEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.ToString());
             }
+        }
+
+        public int GetTotalWage(string companyName)
+        {
+            return this.companyToEmpWageMap[companyName].totalEmpWage;
         }
         /// <summary>
         /// Computes the employee wage for each company
