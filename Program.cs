@@ -8,16 +8,16 @@ namespace EmployeeWageProblem
 
         /// <summary>
         /// Defines the entry point of the application.
+        /// main class where methods are called
         /// </summary>
         /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
-            EmployeeBuilderObject microsoft = new EmployeeBuilderObject("Microsoft", 50, 24, 60);
-            EmployeeBuilderObject google = new EmployeeBuilderObject("Google", 90, 25, 70);
-            microsoft.CalculateEmployeeWage();
-            Console.WriteLine(microsoft.PrintTotalEmpWage());
-            google.CalculateEmployeeWage();
-            Console.WriteLine(google.PrintTotalEmpWage());
+            
+            EmployeeBuildArray employeeBuilder = new EmployeeBuildArray();
+            employeeBuilder.AddCompanyEmpWage("Microsoft", 50, 24, 60);
+            employeeBuilder.AddCompanyEmpWage("Google", 90, 25, 70);
+            employeeBuilder.ComputeEmpWage();
         }
 
 
