@@ -10,7 +10,7 @@ namespace EmployeeWageProblem
         /// Constants
         /// </summary>
         const int IS_EMPLOYEE_FULL_TIME = 1, IS_EMPLOYEE_PART_TIME = 2;
-
+        //List and Hashmap for storing comapany wage and company details
         private LinkedList<CompanyEmpWage> companyEmpWageList;
         private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
         
@@ -19,7 +19,9 @@ namespace EmployeeWageProblem
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
             this.companyToEmpWageMap = new Dictionary<string,CompanyEmpWage>();
         }
-
+        /// <summary>
+        /// Method adds company details to list and hashmap
+        /// </summary>
         public void AddCompanyEmpWage(string company, int WAGE_PER_HR, int MAX_WORKING_DAYS, int MAX_WORKING_HRS)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, WAGE_PER_HR, MAX_WORKING_DAYS, MAX_WORKING_HRS);
@@ -37,7 +39,9 @@ namespace EmployeeWageProblem
                 Console.WriteLine(companyEmpWage.ToString());
             }
         }
-
+        /// <summary>
+        /// Method return company employee  total wage based on company wage
+        /// </summary>
         public int GetTotalWage(string companyName)
         {
             return this.companyToEmpWageMap[companyName].totalEmpWage;
